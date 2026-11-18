@@ -1,0 +1,55 @@
+{
+  "name": "JObbberrr_Error",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.errorTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "78f271a3-f793-47cd-95d1-59bdaafd9cb0",
+      "name": "Error Trigger"
+    },
+    {
+      "parameters": {
+        "chatId": "YOUR_CHAT_ID",
+        "text": "=Workflow failed: {{ $json.workflow.name }} \nError: {{ $json.execution.error.message }} \nLink: {{ $json.execution.url }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        224,
+        0
+      ],
+      "id": "0d974f6b-7387-434c-8186-0da50a4c9e70",
+      "name": "Send a text message"
+    }
+  ],
+  "connections": {
+    "Error Trigger": {
+      "main": [
+        [
+          {
+            "node": "Send a text message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "a9d9dcda-9fd8-4793-bf14-5f9aed1c07fa",
+  "nodeGroups": [],
+  "id": "dyvWZ49uMjWTeuw1",
+  "tags": []
+}
